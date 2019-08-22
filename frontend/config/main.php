@@ -8,9 +8,11 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => 'SecureCRT密码找回',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute'=>'decrypt/index',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
