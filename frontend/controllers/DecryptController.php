@@ -46,6 +46,11 @@ class DecryptController extends Controller
         }
 
         $model->load(Yii::$app->request->post());
+        if (!$model->validate()) {
+            \Yii::$app->getSession()->setFlash('error', Json::encode($model->getErrors()));
+            return $this->redirect(['index']);
+        }
+
         if (!$model->decryptByHash()) {
             \Yii::$app->getSession()->setFlash('error', "解密失败！");
             return $this->redirect(['index']);
