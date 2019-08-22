@@ -91,7 +91,7 @@ class SecureCRTDecipher
 
         $script = dirname(Yii::getAlias("@app")) . '/scripts/SecureCRTCipher.py';
         $version = $version == self::VERSION2 ? '-v2' : '';
-        $command = "python {$script} dec {$version} {$hash} 2>&1";
+        $command = Yii::$app->params['python'] . " {$script} dec {$version} {$hash} 2>&1";
         return $command;
     }
 
