@@ -63,7 +63,7 @@ class DecryptForm extends Model
 
     public function uploadConfigFile()
     {
-        $this->configFile = UploadedFile::getInstance($this, 'confFile');
+        $this->configFile = UploadedFile::getInstance($this, 'configFile');
     }
 
     public function decryptByConfig()
