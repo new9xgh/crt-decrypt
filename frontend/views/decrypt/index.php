@@ -43,7 +43,7 @@ use yii\widgets\ActiveForm; ?>
         </div>
         <br>
         <div class="row">
-            <h4>方式二：上传Password密文</h4>
+            <h4>方式二：使用Password密文</h4>
 
             <?php $form = ActiveForm::begin([
                 'action' => Url::toRoute('decrypt/decrypt-by-hash-password'),
