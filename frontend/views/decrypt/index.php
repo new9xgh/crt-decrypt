@@ -57,6 +57,9 @@ use yii\widgets\ActiveForm; ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>
+        <div class="row">
+            <b>注意：</b>仅供个人学习研究和交流使用，请勿用于任何商业用途。
+        </div>
 
     </div>
 </div>
