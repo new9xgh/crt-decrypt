@@ -2,7 +2,7 @@
 
 通过上传配置文件或使用配置中Password密文进行解密。
 
-[立即使用](http://crt-decrypt.xproject.tech/decrypt)
+[立即使用](http://crt-decrypt.xproject.tech?_blank)
 
 
 ## 安装
