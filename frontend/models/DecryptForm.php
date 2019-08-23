@@ -11,8 +11,8 @@ use yii\web\UploadedFile;
 
 class DecryptForm extends Model
 {
-    const SCENARIO_DECRYPT_BY_CONF = 'decryptByConfig';
-    const SCENARIO_DECRYPT_BY_HASH = 'decryptByHash';
+    const SCENARIO_DECRYPT_BY_CONFIG = 'decryptByConfig';
+    const SCENARIO_DECRYPT_BY_HASH_PASSWORD = 'decryptByHashPassword';
 
     /**
      * @var UploadedFile
@@ -22,12 +22,7 @@ class DecryptForm extends Model
     /**
      * @var string
      */
-    public $hash;
-
-    /**
-     * @var string
-     */
-    public $version;
+    public $hashPassword;
 
     /**
      * @var string
@@ -39,16 +34,12 @@ class DecryptForm extends Model
      */
     public $password;
 
-    public $hashVersions = [
-        SecureCRTDecipher::VERSION1 => '加密版本V1',
-        SecureCRTDecipher::VERSION2 => '加密版本V2',
-    ];
 
     public function rules()
     {
         return [
-            [['configFile'], 'file', 'skipOnEmpty' => false, 'maxSize' => 500 * 1024, 'on' => self::SCENARIO_DECRYPT_BY_CONF],
-            [['hash', 'version'], 'required', 'on' => self::SCENARIO_DECRYPT_BY_HASH],
+            [['configFile'], 'file', 'skipOnEmpty' => false, 'maxSize' => 500 * 1024, 'on' => self::SCENARIO_DECRYPT_BY_CONFIG],
+            [['hashPassword'], 'required', 'on' => self::SCENARIO_DECRYPT_BY_HASH_PASSWORD],
         ];
     }
 
@@ -56,8 +47,7 @@ class DecryptForm extends Model
     {
         return [
             'configFile' => '配置文件',
-            'hash' => 'Hash密文',
-            'version' => '加密版本',
+            'hashPassword' => 'Password密文',
         ];
     }
 
@@ -81,7 +71,7 @@ class DecryptForm extends Model
     public function decryptByHash()
     {
         $secureCRTDecipher = new SecureCRTDecipher();
-        $result = $secureCRTDecipher->decryptByHash($this->hash, $this->version);
+        $result = $secureCRTDecipher->decryptByHashPassword($this->hashPassword);
         if (!$result) {
             return false;
         }

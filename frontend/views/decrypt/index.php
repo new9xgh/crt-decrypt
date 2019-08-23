@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm; ?>
 
 <div class="site-index">
 
-    <h3 class="text-center">SecureCRT配置密码找回</h3>
+    <h3 class="text-center">SecureCRT密码找回</h3>
 
     <div class="body-content">
 
@@ -43,16 +43,15 @@ use yii\widgets\ActiveForm; ?>
         </div>
         <br>
         <div class="row">
-            <h4>方式二：上传Hash密文</h4>
+            <h4>方式二：上传Password密文</h4>
 
             <?php $form = ActiveForm::begin([
-                'action' => Url::toRoute('decrypt/decrypt-by-hash'),
+                'action' => Url::toRoute('decrypt/decrypt-by-hash-password'),
                 'method' => 'post',
                 'options' => ['class' => 'col-lg-6']
             ]);
             ?>
-            <?= $form->field($model, 'version')->dropDownList($model->hashVersions, ['placeholder'=>'加密版本'])->label(false); ?>
-            <?= $form->field($model, 'hash')->textInput(['placeholder'=>'Hash密文'])->label(false); ?>
+            <?= $form->field($model, 'hashPassword')->textInput(['placeholder'=>'Password密文'])->label(false); ?>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">解密</button>
             </div>

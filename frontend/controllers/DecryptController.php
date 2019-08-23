@@ -18,7 +18,7 @@ class DecryptController extends Controller
 
     public function actionDecryptByConfig()
     {
-        $model = new DecryptForm(['scenario' => DecryptForm::SCENARIO_DECRYPT_BY_CONF]);
+        $model = new DecryptForm(['scenario' => DecryptForm::SCENARIO_DECRYPT_BY_CONFIG]);
         if (!Yii::$app->request->isPost) {
             return $this->redirect(['index']);
         }
@@ -38,9 +38,9 @@ class DecryptController extends Controller
         return $this->render('result', ['model' => $model]);
     }
 
-    public function actionDecryptByHash()
+    public function actionDecryptByHashPassword()
     {
-        $model = new DecryptForm(['scenario' => DecryptForm::SCENARIO_DECRYPT_BY_HASH]);
+        $model = new DecryptForm(['scenario' => DecryptForm::SCENARIO_DECRYPT_BY_HASH_PASSWORD]);
         if (!Yii::$app->request->isPost) {
             return $this->redirect(['index']);
         }
