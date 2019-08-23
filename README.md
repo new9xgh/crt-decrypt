@@ -32,4 +32,4 @@ yii serve --docroot="frontend/web" --port=8888
 
 
 ## License
-GPL v3.0
+GPL-3.0
