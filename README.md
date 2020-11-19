@@ -13,19 +13,30 @@
 - python >= 3.6
 
 ### composer
-`
+```
 composer install --prefer-dist -vvv
-`
+```
+
+### python module
+```
+pip install pycryptodome
+```
+
+### 修改配置
+```
+# python 路径
+vi environments/dev/common/config/params-local.php
+```
 
 ### 初始化
-`
+```
 init
-`
+```
 
 ## 运行
-`
+```
 yii serve --docroot="frontend/web" --port=8888
-`
+```
 
 ## 使用
 访问http://localhost:8888
